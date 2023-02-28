@@ -1,0 +1,80 @@
+<style>
+    .err {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+        font-family: sans-serif;
+        background-color: white;
+        color:red;
+        font-weight:400;
+        display:flex;
+        justify-content:space-between;
+        align-item:center;
+        padding:0px 10px;
+      }
+      
+      .errCheckbox {  
+        display: none;
+      }
+      
+      :checked + .err {
+        display: none;
+      }
+      
+      .errText {
+        font-size: 14px;
+        cursor:pointer;
+      }
+      
+      .errClose {
+        font-size: 14px;
+        cursor:pointer;
+      }
+      
+      .clear {
+        clear: both;
+      }
+      
+      .info {
+        background-color: #EEE;
+        border: 1px solid #DDD;
+        color: #999;
+      }
+      
+      .success {
+        background-color: #EFE;
+        border: 1px solid #DED;
+        color: #9A9;
+      }
+      
+      .notice {
+        background-color: #EFF;
+        border: 1px solid #DEE;
+        color: #9AA;
+      }
+      
+      .warning {
+        background-color: #FDF7DF;
+        border: 1px solid #FEEC6F;
+        color: #C9971C;
+      }
+      
+      .error {
+        background-color: #FEE;
+        border: 1px solid #EDD;
+        color: #A66;
+      }
+      
+</style>
+{% if messages %}
+{% for messag in messages %} 
+
+  <label style="width:100%; height:30px">
+    <input type="checkbox" class="errCheckbox" autocomplete="off" />
+    <div class="err">
+      <div class="errText">{{ messag }}</div>
+      <div class="errClose">X</div>
+    </div>
+  </label>
+{% endfor %}
+{% endif %}

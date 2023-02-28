@@ -1,0 +1,120 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+  
+<section class="section why-us" data-section="section2">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-heading">
+          <h2>Why choose Grad School?</h2>
+        </div>
+      </div>
+      <div class="col-md-12">
+        {% for post in send_posts %}
+        <div id='tabs'>
+          <ul>
+            <li><a href='#tabs-1'>{{ post.best_education_name }}</a></li>
+            <li><a href='#tabs-2'>{{ post.top_managment_name }}</a></li>
+            <li><a href='#tabs-3'>{{ post.quality_meeting_name }}</a></li>
+          </ul>
+          <section class='tabs-content'>
+            <article id='tabs-1'>
+              <div class="row">
+                <div class="col-md-6">
+                  {% if post.best_education_images1 %}
+                  <img src="{{ post.best_education_images1.url }}" alt="">
+                  {% endif %}
+                </div>
+                <div class="col-md-6">
+                  <h4>{{ post.best_education_name }}</h4>
+                  <p>{{ post.best_education_body }}</p>
+                </div>
+              </div>
+            </article>
+            <article id='tabs-2'>
+              <div class="row">
+                <div class="col-md-6">
+                  {% if post.top_managment_images2 %}
+                  <img src="{{ post.top_managment_images2.url }}" alt="">
+                  {% endif %}
+                </div>
+                <div class="col-md-6">
+                  <h4>{{ post.top_managment_name }}</h4>
+                    <p> {{ post.top_managment_body }} </p> 
+                </div>
+              </div>
+            </article>
+            <article id='tabs-3'>
+              <div class="row">
+                <div class="col-md-6">
+                  {% if post.quality_meeting_images3 %}
+                  <img src="{{ post.quality_meeting_images3.url }}" alt="">
+                  {% endif %}
+                </div>
+                <div class="col-md-6">
+                  <h4>{{ post.quality_meeting_name }}</h4>
+                  <p>{{ post.quality_meeting_body }}</p>
+                </div>
+              </div>
+            </article>
+            {% endfor %}
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% comment %} 
+
+<section class="section coming-soon" data-section="section3">
+  <div class="container"> 
+    <div class="row">
+      <div class="col-md-7 col-xs-12">
+        <div class="continer centerIt">
+          <div>
+            <h4>Take <em>any online course</em> and win $326 for your next class</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="right-content">
+          <div class="top-content">
+            <h6>Register your free account and <em>get immediate</em> access to online courses</h6>
+          </div>
+          <form id="contact" action="" method="post">
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-md-12">
+                <fieldset>
+                  <input name="tolik_ism" type="text" class="form-control" id="name" placeholder="Full Name" required="">
+                </fieldset>
+              </div>
+              <div class="col-md-12">
+                <fieldset>
+                  <input name="pochta" type="email" class="form-control" id="email" placeholder="Your Email" required="">
+                </fieldset>
+              </div>
+              <div class="col-md-12">
+                <fieldset>
+                  <input name="tel" type="text" class="form-control" id="phone-number" placeholder="Your Phone Number" required="">
+                </fieldset>
+              </div>
+              <div class="col-md-12">
+                <fieldset>
+                  <button type="submit"  class="button">Get it now</button>
+                </fieldset>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> {% endcomment %}
+
+
+{% endblock content %}
